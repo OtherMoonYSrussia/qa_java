@@ -20,7 +20,7 @@ public class CatTest {
 
 
     @Test
-    public void getSoundReturnCorrectSound() throws Exception {
+    public void getSoundReturnCorrectSound() {
         Cat catTest = new Cat(felineTest);
         String expected = "Мяу";
         assertEquals(expected, catTest.getSound());
@@ -33,5 +33,4 @@ public class CatTest {
         Mockito.when(felineTest.eatMeat()).thenReturn(expected);
         assertEquals(expected, catTest.getFood());
     }
-
 }

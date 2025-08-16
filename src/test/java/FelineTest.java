@@ -24,27 +24,27 @@ public class FelineTest {
     }
 
     @Test
-    public void getFamilyReturnCatsFamily() throws Exception {
+    public void getFamilyReturnCatsFamily() {
         String expected = "Кошачий";
         Mockito.when(felineTest.getFamily()).thenReturn(expected);
         assertEquals(expected, felineTest.getFamily());
     }
 
     @Test
-    public void getKittensReturnBasicArghument() throws Exception {
+    public void getKittensReturnBasicParam() {
         int expected = 1;
         Mockito.when(felineTest.getKittens()).thenReturn(expected);
         assertEquals(expected, felineTest.getKittens());
     }
 
     @Test
-    public void getKittensIsUsed() throws Exception {
+    public void getKittensIsUsed() {
         felineTest.getKittens(20);
         Mockito.verify(felineTest).getKittens(20);
     }
 
     @Test
-    public void getKittensWithArghumentsReturnCorrectNumbers() throws Exception {
+    public void getKittensWithParamsReturnCorrectNumbers() {
         int expected = 10;
         Mockito.when(felineTest.getKittens()).thenReturn(expected);
         felineTest.getKittens(10);

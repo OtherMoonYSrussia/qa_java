@@ -32,13 +32,13 @@ class LionTest {
     }
     
     @Test
-    public void hasManeMustBeException() throws Exception {
+    public void hasManeMustBeException() {
         Exception exception = assertThrows(Exception.class, () -> new Lion("НеведомаяСущность", felineTest));
         assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
     }
 
     @Test
-    public void getKittensReturnBasicArghument() throws Exception {
+    public void getKittensReturnBasicParam() throws Exception {
         Mockito.when(felineTest.getKittens()).thenReturn(1);
         Lion lionTest = new Lion("Самец", felineTest);
         int expected = 1;
