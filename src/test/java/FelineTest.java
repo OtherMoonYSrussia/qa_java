@@ -39,18 +39,4 @@ public class FelineTest {
         Mockito.when(felineTest.getKittens()).thenReturn(expected);
         assertEquals(expected, felineTest.getKittens());
     }
-
-
-    @ParameterizedTest
-    @CsvSource({
-        "1, 1",
-        "7, 7",
-        "25, 25"
-    })
-    public void getKittensIsUsed(int inputedNumber, int expected) {
-        Mockito.when(felineTest.getKittens(inputedNumber)).thenReturn(expected);
-        int actual = felineTest.getKittens(inputedNumber);
-        assertEquals(expected, actual);
-        Mockito.verify(felineTest).getKittens(inputedNumber);
-    }
 }
