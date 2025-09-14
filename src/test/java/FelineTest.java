@@ -20,23 +20,35 @@ public class FelineTest {
 
     @Test
     public void eatMeetReturnMeetFoodList() throws Exception {
+        Feline feline = new Feline();
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
-        Mockito.when(felineTest.eatMeat()).thenReturn(expected);
-        List<String> actualResult = felineTest.eatMeat();
+        List<String> actualResult = feline.eatMeat();
         assertEquals(expected, actualResult);
     }
 
     @Test
     public void getFamilyReturnCatsFamily() {
-        String expected = "Кошачий";
-        Mockito.when(felineTest.getFamily()).thenReturn(expected);
-        assertEquals(expected, felineTest.getFamily());
+        Feline feline = new Feline();
+        String expected = "Кошачьи";
+        assertEquals(expected, feline.getFamily());
     }
 
-    @Test
+   @Test
     public void getKittensReturnBasicParam() {
+        Feline feline = new Feline();
         int expected = 1;
-        Mockito.when(felineTest.getKittens()).thenReturn(expected);
-        assertEquals(expected, felineTest.getKittens());
+        assertEquals(expected, feline.getKittens());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "1, 1",
+        "5, 5",
+        "10, 10"
+    })
+    public void getKittensWithParams(int input, int expected) {
+        Feline feline = new Feline();
+        int actual = feline.getKittens(input);
+        assertEquals(expected, actual);
     }
 }
